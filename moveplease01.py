@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+"""A simple script t omove two files into ceph_storage/
+    Alta3 Research rzfeeser@alta3.com"""
+
+# standard library imports
+import shutil    # shell utilities will be used to move files
+import os        # provides access to low level os operations (agnostic to flavor of OS)
+
+def main():
+    """called at runtime"""
+    os.chdir('/home/student/mycode/')    # move into this working directory
+    shutil.move('raynor.obj', 'ceph_storage/')    # try moving the file raynor.obj into ceph_storage/ dir
+
+    # program will paise while we accept input
+    xname = input('What is the name for kerrigan.obj? ')
+    shutil.move('ceph_storage/kerrigan.obj', 'ceph_storage/' + xname)
