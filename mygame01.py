@@ -109,9 +109,9 @@ while True:
     if currentRoom == 'Kitchen' and 'tire iron' in inventory:
         print('You beat the monster to death with a tire iron.')
         del rooms[currentRoom]['item']
-        else:
+    elif currentRoom == 'Kitchen':
             print('A monster has got you...GAME OVER!')
-        break
+            break
 
     ## Define how a player can win
     if currentRoom == 'Garden' and 'key' in inventory and 'potion' in inventory:
