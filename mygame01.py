@@ -35,7 +35,8 @@ rooms = {
             'Hall' : {
                   'south' : 'Kitchen',
                   'east'  : 'Dining Room',
-                  'item'  : 'key'
+                  'item'  : 'key',
+                  'west'  : 'Garage'
                 },
 
             'Kitchen' : {
@@ -48,9 +49,13 @@ rooms = {
                 'item' : 'potion'
                 },
             'Garden' : {
-                'north' : 'Dining Room'
-                }
-
+                'north' : 'Dining Room',
+                },
+            'Garage' : {
+                'east'  : 'Kitchen',
+                'item'  : 'tire iron',
+                'south' : 'Basement',
+                },
          }
 
 # start the player in the Hall
@@ -101,8 +106,11 @@ while True:
             print('Can\'t get ' + move[1] + '!')
 
     ## If a player enters a room with a monster
-    if 'item' in rooms[currentRoom] and 'monster' in rooms[currentRoom]['item']:
-        print('A monster has got you...GAME OVER!')
+    if currentRoom == 'Kitchen' and 'tire iron' in inventory:
+        print('You beat the monster to death with a tire iron.')
+        del rooms[currentRoom]['item']
+        else:
+            print('A monster has got you...GAME OVER!')
         break
 
     ## Define how a player can win
