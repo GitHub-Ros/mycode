@@ -76,15 +76,14 @@ while True:
         if 'items' in rooms[currentRoom] and move[1] == rooms[currentRoom]['items'][0]:
             inventory.append(move[1])
             print(move[1] + ' got!')
-            #del rooms[currentRoom]['items']
+            del rooms[currentRoom]['items']
         else:
             print('Can\'t get ' + move[1] + '!')
 
-    if currentRoom == 'Kitchen':
-        if 'tire iron' in inventory:
+    if currentRoom == 'Kitchen' and 'tire iron' in inventory:
             print('You beat the monster to death with a tire iron.')
             del rooms[currentRoom]['items']
-        else:
+    elif currentRoom == 'Kitchen':
             print('A monster has got you... Game Over!')
             break
     if currentRoom == 'Garden' and 'key' in inventory and 'potion' in inventory:
